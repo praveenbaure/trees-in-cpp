@@ -24,6 +24,7 @@ public:
     void in_order_traverse() override;
     void delete_n(int32_t data) override ;
     void bfs_traversal() override;
+    void pre_order_traversal() override;
 //    uint8_t post_order_traverse();
 //    uint8_t per_order_traverse();
 

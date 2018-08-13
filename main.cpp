@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <iostream>
 #include "./simple_bst/simple_bst.h"
+#include "avl_tree/avl_tree.h"
 
 int main()
 {
@@ -27,5 +28,13 @@ int main()
     std::cout << "\n";
     bt.in_order_traverse();
 
+    avl_tree avltree;
+
+    avltree.insert(6);
+    avltree.insert(5);
+    avltree.insert(4);
+
+    printf("*****\n");
+    avltree.pre_order_traversal();
     return 0;
 } // The bst_struct is destroyed here

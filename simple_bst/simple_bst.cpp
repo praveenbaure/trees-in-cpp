@@ -158,6 +158,11 @@ void simple_bst::bst_inorder(bst_struct *node) {
     bst_inorder(node->right);
 }
 
+//preorder traversal
+void simple_bst::pre_order_traversal() {
+    return;
+}
+
 //breadth first traversal
 void simple_bst::bfs_traversal() {
     std::queue<bst_struct * > fifoq;
