@@ -33,7 +33,7 @@ bool avl_tree::find(int32_t data) {
 }
 
 int8_t avl_tree::insert(int32_t data) {
-    root = avl_insert(root,data);
+    root = avl_insert(root, data);
     return 1;
 }
 
@@ -100,7 +100,7 @@ avl_struct * avl_tree::avl_insert(avl_struct *node, int data) {
             node->right = right_rotation(node->right);
         return left_rotation(node);
     } else
-        printf("Node is already balanced\n");
+    return node;
 }
 
 /*

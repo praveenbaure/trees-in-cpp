@@ -22,19 +22,17 @@ int main()
     bt.bfs_traversal();
     std::cout << "\n";
     bt.in_order_traverse();
-    std::cout << "\n";
-    bt.delete_n(1);
-    bt.bfs_traversal();
-    std::cout << "\n";
-    bt.in_order_traverse();
 
     avl_tree avltree;
 
-    avltree.insert(6);
-    avltree.insert(5);
-    avltree.insert(4);
+    avltree.insert(10);
+    avltree.insert(20);
+    avltree.insert(30);
+    avltree.insert(40);
+    avltree.insert(50);
+    avltree.insert(25);
 
-    printf("*****\n");
+    std::cout << "\n";
     avltree.pre_order_traversal();
     return 0;
 } // The bst_struct is destroyed here
