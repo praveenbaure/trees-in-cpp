@@ -8,8 +8,7 @@
 
 
 simple_bst::~simple_bst() {
-    if(nullptr != root)
-        delete root;
+    delete root;
 }
 
 bst_struct* simple_bst::create_node(int val) {
@@ -111,6 +110,10 @@ void simple_bst::delete_n(int32_t data) {
 
 void simple_bst::swap_bst(bst_struct *node, bst_struct *parent_node) {
     bst_struct* temp , *  temp_parent;
+    /*
+     * case one if the node to be deleted is leaf node
+     * than just delete the node and set the parent left or right
+     */
     if(nullptr == node->left && nullptr == node->right) {
         if(node == parent_node->left)
             parent_node->left = nullptr;
@@ -119,6 +122,14 @@ void simple_bst::swap_bst(bst_struct *node, bst_struct *parent_node) {
         delete node;
         return;
     }
+    /*
+     * case 2 when node to be deleted is non leaf
+     * find the gratest node which is less the node  to be deleted
+     * or lowest node which is greater than the node to be deleted
+     * and replace the value of found node with the node to be deleted
+     * and pass the last node and its parent to swap_bst function
+     * this time the node to be deleted is leaf node and will be deleted node
+     */
     temp_parent =  node;
     if(nullptr != node->left) {
         //find largest left  node if there is any left sub tree
@@ -127,7 +138,7 @@ void simple_bst::swap_bst(bst_struct *node, bst_struct *parent_node) {
             temp_parent = temp;
             temp = temp->right;
         }
-        node->data = temp->data;
+        node->data = temp->data; 
     }else{
         //find smallest right node
         temp = node->right;

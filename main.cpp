@@ -9,15 +9,10 @@ int main()
 
     bt.insert(6);
     bt.insert(2);
-    bt.insert(11);
     bt.insert(1);
     bt.insert(5);
     bt.insert(4);
-    bt.insert(7);
     bt.insert(3);
-    bt.insert(10);
-    bt.insert(8);
-    bt.insert(9);
 
     bt.bfs_traversal();
     std::cout << "\n";
@@ -32,6 +27,9 @@ int main()
     avltree.insert(50);
     avltree.insert(25);
 
+    std::cout << "\n";
+    avltree.pre_order_traversal();
+    avltree.delete_n(20);
     std::cout << "\n";
     avltree.pre_order_traversal();
     return 0;

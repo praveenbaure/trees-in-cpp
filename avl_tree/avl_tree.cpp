@@ -107,7 +107,47 @@ avl_struct * avl_tree::avl_insert(avl_struct *node, int data) {
  * delete node and tree
  */
 void avl_tree::delete_n(int32_t data) {
-
+    if(nullptr == root)
+        return;
+    avl_delete(root, data);
+}
+avl_struct* avl_tree::avl_delete(avl_struct *node, int data) {
+    /*
+     * first delete normal delete on bst
+     */
+    avl_struct * temp = node;
+    if(nullptr == node)
+        return node;
+    if(data < node->data)
+        node->left = avl_delete(node->left, data);
+    else if(data > node->data)
+        node->right = avl_delete(node->right, data);
+    else if(data == node->data){
+        //both left and right child are null
+        if(nullptr == node->right && nullptr == node->left) {
+            delete node;
+            temp = nullptr;
+        }
+        //if left of node is null
+        else  if(nullptr == node->left){
+            temp = node->right;
+            delete node;
+        }
+        //if right is null
+        else if(nullptr == node->right){
+            temp = node->left;
+            delete node;
+        } else {
+            //left and right are not null
+            temp = node->right;
+            while (nullptr != temp->left)
+                temp = temp->left;
+            node->data = temp->data;
+            node->right = avl_delete(node->right, temp->data);
+            temp = node;
+        }
+    }
+    return temp;
 }
 
 void avl_tree::delete_t() {

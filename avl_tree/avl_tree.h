@@ -25,6 +25,7 @@ private:
     avl_struct * right_rotation(avl_struct*);
     avl_struct * left_rotation(avl_struct *);
     void avl_preorder(avl_struct *);
+    avl_struct * avl_delete(avl_struct * node, int data);
 
 };
 #endif //TREE_AVL_TREE_H
