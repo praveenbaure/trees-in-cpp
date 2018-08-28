@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <queue>
 #include "avl_tree.h"
 #include "../tree.h"
 
@@ -29,9 +30,21 @@ avl_struct* avl_tree::create_node(int data) {
 }
 
 bool avl_tree::find(int32_t data) {
-
+    return nullptr != find(root, data);
 }
 
+avl_struct * avl_tree::find(avl_struct *node, int32_t data) {
+    if(nullptr ==  node){
+        return nullptr;
+    }
+    if(data == node->data){
+        return node;
+    }
+    if(data < node->data)
+        return find(node->left, data);
+    else
+        return find(node->right, data);
+}
 int8_t avl_tree::insert(int32_t data) {
     root = avl_insert(root, data);
     return 1;
@@ -171,10 +184,35 @@ void avl_tree::avl_preorder(avl_struct * node) {
 
 //in order
 void avl_tree::in_order_traverse() {
-
+    avl_inorder(root);
 }
+
+void avl_tree::avl_inorder(avl_struct *node) {
+    if(!node)
+        return;
+    avl_inorder(node->left);
+    printf("%d\t", node->data);
+    avl_inorder(node->right);
+}
+
 
 //bsf traversal
 void avl_tree::bfs_traversal() {
-
+    std::queue<avl_struct *> fifo_queue;
+    avl_struct *temp;
+    fifo_queue.push(root);
+    fifo_queue.push(nullptr);
+    while(!fifo_queue.empty()){
+        temp = fifo_queue.front();
+        fifo_queue.pop();
+        if(nullptr == temp)
+            fifo_queue.push(nullptr);
+        else{
+            printf("%d\t",temp->data);
+            if(nullptr == temp->left)
+                fifo_queue.push(temp->left);
+            if(nullptr == temp->right)
+                fifo_queue.push(temp->right);
+        }
+    }
 }

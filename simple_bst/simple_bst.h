@@ -33,6 +33,7 @@ private:
     bst_struct* bst_find(bst_struct* ,int32_t  val);
     void bst_delete(bst_struct *node);
     void bst_inorder(bst_struct *node);
+    void bst_preorder(bst_struct *node);
     bst_struct * bst_find_parent(bst_struct *node, int32_t val);
     void swap_bst(bst_struct *node, bst_struct *parent_node);
 

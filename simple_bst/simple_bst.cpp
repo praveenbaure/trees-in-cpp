@@ -171,7 +171,15 @@ void simple_bst::bst_inorder(bst_struct *node) {
 
 //preorder traversal
 void simple_bst::pre_order_traversal() {
-    return;
+    bst_preorder(root);
+}
+
+void simple_bst::bst_preorder(bst_struct *node) {
+     if(nullptr == node)
+        return;
+    printf("%d\t",node->data);
+    bst_inorder(node->left);
+    bst_inorder(node->right);
 }
 
 //breadth first traversal

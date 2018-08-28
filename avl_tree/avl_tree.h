@@ -22,9 +22,11 @@ public:
 
 private:
     avl_struct * avl_insert(avl_struct *node, int data);
+    avl_struct * find(avl_struct *node, int32_t data);
     avl_struct * right_rotation(avl_struct*);
     avl_struct * left_rotation(avl_struct *);
     void avl_preorder(avl_struct *);
+    void avl_inorder(avl_struct *);
     avl_struct * avl_delete(avl_struct * node, int data);
 
 };
