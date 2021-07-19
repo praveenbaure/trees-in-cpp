@@ -16,6 +16,5 @@ private:
     virtual void delete_t() = 0;
     virtual void delete_n(int32_t data) = 0;
     virtual void bfs_traversal() = 0;
-    //test changes
 };
 #endif //PRAC_CODE_TREE_H
